@@ -29,7 +29,8 @@ export class ScoreGame extends Component {
         this._maxScore = value;
     }
 
-    private getScoreLocal: number;
+    private setScoreLocal: string;
+    private getScoreLocal: string;
 
     protected start(): void {
         this.maxScore = parseInt(localStorage.getItem('maxScore'));
@@ -52,7 +53,7 @@ export class ScoreGame extends Component {
         }
     }
 
-    public overralScore() {
+    public overralScore(): void {
         this.maxScore = parseInt(localStorage.getItem('maxScore'));
         console.log(this.maxScore);
         this.highScore.string = `High Score: ${this._maxScore}`;

@@ -1,12 +1,12 @@
-import { _decorator, Component, Node, input, Input, EventTouch, director } from 'cc';
+import { _decorator, Component, Node, input, Input, EventTouch, director, AudioSource } from 'cc';
 import { Lives } from './Lives';
 const { ccclass, property } = _decorator;
 
 import { ScoreGame } from './ScoreGame';
-import { Shape } from './Shape';
 import { Timer } from './Timer';
-import { DataScore } from './DataScore';
 import { Constants } from './Constants';
+import { GameParameter } from './GameParameter';
+import { AudioGameController } from './AudioGameController';
 
 @ccclass('GameController')
 export class GameController extends Component {
@@ -27,15 +27,12 @@ export class GameController extends Component {
     private lives: Lives;
 
     @property({
-        type: Shape
+        type: AudioGameController
     })
-    private shape: Shape;
-
-    private tempCurrentScore: number;
-    private tempMaxScore: number;
+    private audioCtrl: AudioGameController;
 
     protected start(): void {
-        
+        // what should i do? i'm bất lực
     }
 
     protected onLoad(): void {    
@@ -52,6 +49,7 @@ export class GameController extends Component {
     protected onTouchSquare(): void {
         this.scoreGame.addScore();
         this.scoreGame.overralScore();
+        this.audioCtrl.onPlaySoundEffect(0);
        
     }
 
@@ -62,10 +60,11 @@ export class GameController extends Component {
     protected onTouchCircle(): void {
         if (this.lives.scoreLives === 1) {
             // this.scoreGame.resetScore();
-            director.loadScene(Constants.ResultGame)
-            
+            this.overGame();
+            this.audioCtrl.onPlaySoundEffect(2);
         } else {
             this.lives.minusLives();
+            this.audioCtrl.onPlaySoundEffect(1);
         }
     }
 
@@ -74,13 +73,23 @@ export class GameController extends Component {
             if (this.timer.time > 1) {
                 this.timer.reduceTime();
             } else {
-                director.loadScene(Constants.ResultGame);
+                this.overGame();
+                this.audioCtrl.onPlaySoundEffect(2);
             }
         }, 1);
     }
 
     protected update(delta: number): void {
 
+    }
+
+    protected overGame(): void {
+        const node = new Node('GameParameter');
+        const param = node.addComponent(GameParameter);
+        param.indexScore = this.scoreGame.currentScore;
+
+        director.addPersistRootNode(node);
+        director.loadScene(Constants.ResultGame)
     }
 }
 
