@@ -264,7 +264,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Background",
+    "_name": "BackgroundEntry",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -408,8 +408,8 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 1.5,
+      "y": 1.5,
       "z": 1
     },
     "_mobility": 0,
@@ -450,7 +450,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 50,
+      "y": 35,
       "z": 0
     },
     "_lrot": {
@@ -746,7 +746,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -50,
+      "y": -35,
       "z": 0
     },
     "_lrot": {
@@ -1026,7 +1026,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 200,
-      "height": 140
+      "height": 110
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1057,7 +1057,7 @@
     "_paddingTop": 0,
     "_paddingBottom": 0,
     "_spacingX": 0,
-    "_spacingY": 60,
+    "_spacingY": 30,
     "_verticalDirection": 1,
     "_horizontalDirection": 0,
     "_constraint": 0,
@@ -1124,7 +1124,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 415.31,
+      "width": 426.42,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1153,7 +1153,7 @@
       "b": 0,
       "a": 255
     },
-    "_string": "Don't tap the circe!",
+    "_string": "Don't tap the circle!",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 50,
