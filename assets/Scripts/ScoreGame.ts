@@ -29,7 +29,7 @@ export class ScoreGame extends Component {
         this._maxScore = value;
     }
 
-    protected start(): void {
+    protected onLoad(): void {
         this.maxScore = parseInt(localStorage.getItem('maxScore'));
         if (!this.maxScore) {
             this.highScore.string = `High Score: 0`;
@@ -44,7 +44,7 @@ export class ScoreGame extends Component {
         if (!localStorage.getItem('maxScore')) {
             localStorage.setItem('maxScore', (this.currentScore.toString()));
         } else {
-            // what should i do here? 
+
         }
         if (this.currentScore >= parseInt(localStorage.getItem('maxScore'))) {
             this.maxScore++;
@@ -56,8 +56,7 @@ export class ScoreGame extends Component {
 
     public overralScore(): void {
         this.maxScore = parseInt(localStorage.getItem('maxScore'));
-        console.log(this.maxScore);
-        if (this.maxScore === null) {
+        if (!this.maxScore) {
             this.highScore.string = `High Score: 0`;
         } else {
             this.highScore.string = `High Score: ${this._maxScore}`;

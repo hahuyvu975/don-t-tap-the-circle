@@ -32,7 +32,7 @@ export class GameController extends Component {
     private audioCtrl: AudioGameController;
 
     protected start(): void {
-        // what should i do? i'm bất lực
+        // what should i do ? i don't get it code in cocos
     }
 
     protected onLoad(): void {    
