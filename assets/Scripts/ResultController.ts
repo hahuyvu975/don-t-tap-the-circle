@@ -42,8 +42,11 @@ export class ResultController extends Component {
 
     protected showMaxScore(): void {
         const tempMaxScore = (localStorage.getItem('maxScore'));
-        this.highScore.string = `High Score: ${tempMaxScore}`;
-        console.log(tempMaxScore);
+        if(tempMaxScore === null) {
+            this.highScore.string = `High Score: 0`;
+        }else {
+            this.highScore.string = `High Score: ${tempMaxScore}`;
+        }
     }
     protected showCurrentScore(): void {
         this.scoreLabel.string = `Score: ${this.currentScore}`;

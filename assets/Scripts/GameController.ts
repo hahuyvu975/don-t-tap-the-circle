@@ -50,11 +50,6 @@ export class GameController extends Component {
         this.scoreGame.addScore();
         this.scoreGame.overralScore();
         this.audioCtrl.onPlaySoundEffect(0);
-       
-    }
-
-    public updateHighScore(): void {
-        
     }
 
     protected onTouchCircle(): void {
@@ -78,11 +73,7 @@ export class GameController extends Component {
             }
         }, 1);
     }
-
-    protected update(delta: number): void {
-
-    }
-
+    
     protected overGame(): void {
         const node = new Node('GameParameter');
         const param = node.addComponent(GameParameter);
@@ -90,6 +81,10 @@ export class GameController extends Component {
 
         director.addPersistRootNode(node);
         director.loadScene(Constants.ResultGame)
+    }
+
+    protected update(delta: number): void {
+
     }
 }
 
