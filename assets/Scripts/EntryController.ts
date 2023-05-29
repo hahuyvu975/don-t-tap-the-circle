@@ -11,7 +11,7 @@ export class EntryController extends Component {
     }
 
     public resetGame(): void {
-        localStorage.clear();
+        localStorage.setItem('maxScore', '0' );
     }
     
 }

@@ -35,19 +35,12 @@ export class GameController extends Component {
     private tempMaxScore: number;
 
     protected start(): void {
-
         
-        // this.scoreGame.maxScore = parseInt(localStorage.getItem('maxScore'));
-        // console.log(this.scoreGame.maxScore);
     }
 
-    protected onLoad(): void {
-        // this.scoreGame.resetScore();
-        
+    protected onLoad(): void {    
         this.initListeners();
-        this.scheduleTime();
-        // this.scoreGame.maxScore;
-        
+        this.scheduleTime();     
     }
 
     

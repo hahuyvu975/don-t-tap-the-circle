@@ -16,19 +16,15 @@ export class ResultController extends Component {
     })
     private highScore: Label;
 
-    private maxScore: number = 0;
-    private currentScore: number;
 
-    
-
-    protected onLoad(): void {
+    protected start(): void {
         this.showMaxScore();
     }
 
     protected showMaxScore(): void {
-        this.maxScore = parseInt(localStorage.getItem('maxScore'));
-        this.highScore.string = `High Score: ${this.maxScore}`;
-        console.log(this.maxScore);
+        const tempMaxScore = (localStorage.getItem('maxScore'));
+        this.highScore.string = `High Score: ${tempMaxScore}`;
+        console.log(tempMaxScore);
     }
 
     public onClickRestart(): void {
