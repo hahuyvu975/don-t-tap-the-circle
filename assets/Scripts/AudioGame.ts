@@ -1,8 +1,8 @@
 import { _decorator, Component, Node, AudioClip, AudioSource } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('AudioEntryController')
-export class AudioEntryController extends Component {
+@ccclass('AudioGame')
+export class AudioGame extends Component {
     @property({
         type: [AudioClip]
     })
@@ -17,5 +17,6 @@ export class AudioEntryController extends Component {
         let audio: AudioClip = this.audioClip[index];
         this.audioSource.playOneShot(audio);
     }
+
 }
 

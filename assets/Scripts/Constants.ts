@@ -8,8 +8,6 @@ export class Constants extends Component {
    public static readonly ResultGame = 'Result';
 
    public static readonly GameParameter = 'GameParameter';
-
-
 }
 
 

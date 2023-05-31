@@ -5,8 +5,9 @@ const { ccclass, property } = _decorator;
 import { ScoreGame } from './ScoreGame';
 import { Timer } from './Timer';
 import { Constants } from './Constants';
+
+import { AudioGame } from './AudioGame';
 import { GameParameter } from './GameParameter';
-import { AudioGameController } from './AudioGameController';
 
 @ccclass('GameController')
 export class GameController extends Component {
@@ -27,9 +28,9 @@ export class GameController extends Component {
     private lives: Lives;
 
     @property({
-        type: AudioGameController
+        type: AudioGame
     })
-    private audioCtrl: AudioGameController;
+    private audioCtrl: AudioGame;
 
     protected start(): void {
         // what should i do ? i don't get it code in cocos
@@ -49,17 +50,23 @@ export class GameController extends Component {
     protected onTouchSquare(): void {
         this.scoreGame.addScore();
         this.scoreGame.overralScore();
-        this.audioCtrl.onPlaySoundEffect(0);
+        if(localStorage.getItem('volume') === '1'){
+            this.audioCtrl.onPlaySoundEffect(0);
+        }
     }
 
     protected onTouchCircle(): void {
         if (this.lives.scoreLives === 1) {
             // this.scoreGame.resetScore();
             this.overGame();
-            this.audioCtrl.onPlaySoundEffect(2);
+            if(localStorage.getItem('volume') === '1'){
+                this.audioCtrl.onPlaySoundEffect(2);
+            }
         } else {
             this.lives.minusLives();
-            this.audioCtrl.onPlaySoundEffect(1);
+            if(localStorage.getItem('volume') === '1'){
+                this.audioCtrl.onPlaySoundEffect(1);
+            }
         }
     }
 
@@ -69,7 +76,9 @@ export class GameController extends Component {
                 this.timer.reduceTime();
             } else {
                 this.overGame();
-                this.audioCtrl.onPlaySoundEffect(2);
+                if(localStorage.getItem('volume') === '1'){
+                    this.audioCtrl.onPlaySoundEffect(2);
+                }
             }
         }, 1);
     }
@@ -83,9 +92,6 @@ export class GameController extends Component {
         director.loadScene(Constants.ResultGame)
     }
 
-    protected update(delta: number): void {
-
-    }
 }
 
 
