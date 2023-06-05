@@ -13,10 +13,9 @@ export class AudioGame extends Component {
     })
     private audioSource: AudioSource = null;
 
-    public onPlaySoundEffect(index: number): void {
+    public onAudioQueue(index: number): void {
         let audio: AudioClip = this.audioClip[index];
         this.audioSource.playOneShot(audio);
     }
-
 }
 

@@ -55,7 +55,7 @@ export class ResultController extends Component {
 
     public onClickRestart(): void {
         if(localStorage.getItem('volume') === '1'){
-            this.audioResult.onPlaySoundEffect(0);
+            this.audioResult.onAudioQueue(0);
         }else {
             
         }
@@ -65,7 +65,7 @@ export class ResultController extends Component {
 
     public onClickMainMenu(): void {
         if(localStorage.getItem('volume') === '1'){
-            this.audioResult.onPlaySoundEffect(0);
+            this.audioResult.onAudioQueue(0);
         }else {
             
         }

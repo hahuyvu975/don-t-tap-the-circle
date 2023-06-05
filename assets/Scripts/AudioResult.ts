@@ -27,14 +27,10 @@ export class AudioResult extends Component {
         this._indexAudioResult = value;
     }
 
-    public onPlaySoundEffect(index: number): void {
+    public onAudioQueue(index: number): void {
         let audio: AudioClip = this.audioClip[index];
         this.audioSource.playOneShot(audio);
         this.AudioSource.volume = 1;
-    }
-
-    public pauseSoundEffect(): void {
-        this.audioSource.pause();
     }
 }
 

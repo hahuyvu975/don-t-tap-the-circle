@@ -23,7 +23,9 @@ export class EntryController extends Component {
     private turnOff: Node;
 
     protected onLoad(): void {
-        localStorage.setItem('volume', '1');
+        if(!localStorage.getItem('volume')){
+            localStorage.setItem('volume', '1');
+        }
         if (localStorage.getItem('volume') === '1') {
             this.turnOff.active = false;
             this.turnOn.active = true;
